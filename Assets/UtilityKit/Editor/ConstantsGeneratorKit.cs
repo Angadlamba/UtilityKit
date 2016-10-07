@@ -16,9 +16,9 @@ namespace Prime31Editor
 	// Note: This class uses UnityEditorInternal which is an undocumented internal feature
 	public class ConstantsGeneratorKit : MonoBehaviour
 	{
-		private const string FOLDER_LOCATION = "scripts/auto-generated/";
-		private const string NAMESPACE = "k";
-		private static ConstantNamingStyle CONSTANT_NAMING_STYLE = ConstantNamingStyle.UppercaseWithUnderscores;
+		private const string FOLDER_LOCATION = "_Game/Scripts/Auto-generated/";
+		private const string NAMESPACE = "Prime31.UtilityKit.Constants";
+        private static ConstantNamingStyle CONSTANT_NAMING_STYLE = ConstantNamingStyle.CamelCase;
 		private const string DIGIT_PREFIX = "k";
 		private static string[] IGNORE_RESOURCES_IN_SUBFOLDERS = new string[] { "ProCore", "2DToolkit" };
 		private static bool SHOW_SUCCESS_MESSAGE = true;
@@ -135,11 +135,11 @@ namespace Prime31Editor
 				output += "\n\t\tpublic const int " + TOTAL_SCENES_CONSTANT_NAME + " = " + labelsArray.Length + ";\n\n\n";
 
 				output += "\t\tpublic static int nextSceneIndex()\n";
-                output += "\t\t{\n";
-                output += "\t\t\tvar currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;\n";
-                output += "\t\t\tif( currentSceneIndex + 1 == " + TOTAL_SCENES_CONSTANT_NAME + " )\n";
-                output += "\t\t\t\treturn 0;\n";
-                output += "\t\t\treturn currentSceneIndex + 1;\n";
+				output += "\t\t{\n";
+				output += "\t\t\tvar currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;\n";
+				output += "\t\t\tif( currentSceneIndex + 1 == " + TOTAL_SCENES_CONSTANT_NAME + " )\n";
+				output += "\t\t\t\treturn 0;\n";
+				output += "\t\t\treturn currentSceneIndex + 1;\n";
 				output += "\t\t}\n";
 			}
 
